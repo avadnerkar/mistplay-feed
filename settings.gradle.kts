@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")//These are stable enough to use for demo purposes
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -15,6 +13,7 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
+    @Suppress("UnstableApiUsage")//Stable enough to use for test app purposes
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
@@ -22,5 +21,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Mistplay Feed"
+rootProject.name = "mistplay-feed"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(":app")
+include(":ui")
