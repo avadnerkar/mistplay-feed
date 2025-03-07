@@ -30,7 +30,14 @@ fun MFApp(
         Scaffold(
             containerColor = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground,
-            contentWindowInsets = WindowInsets(0, 0, 0, 0)
+            topBar = {
+                TopBar(
+                    titleRes = R.string.app_name,
+                    actionIcon = null,
+                    actionIconContentDescription = null,
+                    onActionClick = {}
+                )
+            }
         ) { padding ->
             Column(
                 modifier = Modifier.fillMaxSize()
@@ -42,16 +49,7 @@ fun MFApp(
                         )
                     )
             ) {
-                TopBar(
-                    titleRes = R.string.app_name,
-                    actionIcon = null,
-                    actionIconContentDescription = null,
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                    ),
-                    onActionClick = {}
-                )
+                //TODO: Add Navhost
             }
         }
     }
