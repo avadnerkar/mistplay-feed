@@ -1,24 +1,23 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.mistplayfeed.android.application)
+    alias(libs.plugins.mistplayfeed.android.application.compose)
+    alias(libs.plugins.mistplayfeed.hilt)
 }
 
 android {
     namespace = "com.abhi.mistplayfeed"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.abhi.mistplayfeed"
-        minSdk = 27
-        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            //Just use debug signing - for a production build we'd need to generate a signing key
+            signingConfig = signingConfigs.named("debug").get()
+            //For a real application we'd enable minification - leaving it disabled for now due to time limitations in testing release build
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -26,21 +25,15 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
 }
 
 dependencies {
-
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.lifecycle.viewModelCompose)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
 }

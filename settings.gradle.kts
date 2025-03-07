@@ -1,4 +1,7 @@
+@file:Suppress("UnstableApiUsage")//These are stable enough to use for demo purposes
+
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -21,4 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Mistplay Feed"
 include(":app")
- 
