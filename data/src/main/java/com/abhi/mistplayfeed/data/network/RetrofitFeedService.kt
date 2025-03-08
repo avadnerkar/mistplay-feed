@@ -21,12 +21,12 @@ private interface FeedApi {
 
 @Singleton
 internal class RetrofitFeedService @Inject constructor(
-    okhttpCallFactory: Call.Factory,
+    okhttpCallFactory: dagger.Lazy<Call.Factory>,
     json: Json
 ) : FeedService {
     private val networkApi = Retrofit.Builder()
         .baseUrl("https://jsonplaceholder.typicode.com/")
-        .callFactory { okhttpCallFactory.newCall(it) }
+        .callFactory { okhttpCallFactory.get().newCall(it) }
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
         .create(FeedApi::class.java)

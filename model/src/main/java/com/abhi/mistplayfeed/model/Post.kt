@@ -1,13 +1,9 @@
 package com.abhi.mistplayfeed.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
-@Entity(
-    tableName = "post"
-)
+@Serializable
 data class Post(
-    @PrimaryKey
     val id: Long,
     val userId: Long,
     val title: String?,

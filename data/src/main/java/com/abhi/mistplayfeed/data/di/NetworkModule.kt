@@ -1,5 +1,6 @@
 package com.abhi.mistplayfeed.data.di
 
+import com.abhi.mistplayfeed.data.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

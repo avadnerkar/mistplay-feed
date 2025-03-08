@@ -20,6 +20,6 @@ internal object DatabaseModule {
     ): MFDatabase = Room.databaseBuilder(
         context,
         MFDatabase::class.java,
-        "mf-database"
+        "mf-database",
     ).build()
 }

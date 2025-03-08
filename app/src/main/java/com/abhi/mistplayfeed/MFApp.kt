@@ -16,6 +16,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.abhi.mistplayfeed.navigation.MFNavHost
 import com.abhi.mistplayfeed.ui.component.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,7 +49,7 @@ fun MFApp(
                         )
                     )
             ) {
-                //TODO: Add Navhost
+                MFNavHost()
             }
         }
     }

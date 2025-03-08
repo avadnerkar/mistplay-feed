@@ -6,6 +6,9 @@ plugins {
 
 android {
     namespace = "com.abhi.mistplayfeed.data"
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

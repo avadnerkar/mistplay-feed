@@ -4,13 +4,13 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.abhi.mistplayfeed.database.dao.PostDao
 import com.abhi.mistplayfeed.database.dao.UserDao
-import com.abhi.mistplayfeed.model.Post
-import com.abhi.mistplayfeed.model.User
+import com.abhi.mistplayfeed.database.entity.PostEntity
+import com.abhi.mistplayfeed.database.entity.UserEntity
 
 @Database(
     entities = [
-        User::class,
-        Post::class
+        UserEntity::class,
+        PostEntity::class
     ],
     version = 1
 )
