@@ -1,0 +1,8 @@
+plugins {
+    alias(libs.plugins.mistplayfeed.jvm.library)
+    alias(libs.plugins.mistplayfeed.hilt)
+}
+
+dependencies {
+    implementation(libs.kotlinx.coroutines.core)
+}
