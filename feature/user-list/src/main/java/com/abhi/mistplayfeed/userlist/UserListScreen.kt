@@ -2,10 +2,6 @@ package com.abhi.mistplayfeed.userlist
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,7 +18,8 @@ import com.abhi.mistplayfeed.userlist.components.UserListComponent
 fun UserListScreen(
     onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
     modifier: Modifier = Modifier,
-    viewModel: UserListViewModel = hiltViewModel()
+    viewModel: UserListViewModel = hiltViewModel(),
+    onNavigateToDetail: (userId: Long) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     LifecycleEventEffect(Lifecycle.Event.ON_START) {
@@ -40,7 +37,7 @@ fun UserListScreen(
                     onRetry = viewModel::refresh,
                     onShowSnackbar = onShowSnackbar
                 )
-                UserListComponent(users = state.userProps)
+                UserListComponent(users = state.userProps, onNavigateToDetail = onNavigateToDetail)
             }
         }
     }
@@ -52,8 +49,8 @@ fun ErrorHandler(
     onRetry: () -> Unit,
     onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
 ) {
-    val errorMessage = stringResource(R.string.mf_feature_user_list_network_error)
-    val retry = stringResource(R.string.mf_feature_user_list_network_error_refresh)
+    val errorMessage = stringResource(R.string.feature_user_list_network_error)
+    val retry = stringResource(R.string.feature_user_list_network_error_refresh)
     LaunchedEffect(key1 = hasError) {
         if (hasError) {
             val snackbarResult = onShowSnackbar(errorMessage, retry)

@@ -1,11 +1,17 @@
 package com.abhi.mistplayfeed.userlist
 
 import com.abhi.mistplayfeed.model.Post
-import com.abhi.mistplayfeed.model.User
+
+data class PostProps(
+    val title: String,
+    val body: String?
+)
 
 data class UserProps(
-    val user: User,
-    val highlightedPosts: List<Post>,
+    val id: Long,
+    val name: String,
+    val companyName: String?,
+    val highlightedPosts: List<PostProps>,
     val hasMorePosts: Boolean
 )
 

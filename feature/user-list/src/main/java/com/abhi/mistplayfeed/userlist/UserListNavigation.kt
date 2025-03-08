@@ -11,6 +11,6 @@ fun NavGraphBuilder.userListScreen(
     onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
 ) {
     composable<UserListRoute> {
-        UserListScreen(onShowSnackbar = onShowSnackbar)
+        UserListScreen(onShowSnackbar = onShowSnackbar, onNavigateToDetail = {})
     }
 }

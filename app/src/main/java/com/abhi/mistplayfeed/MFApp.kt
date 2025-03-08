@@ -34,8 +34,6 @@ fun MFApp(
         modifier = modifier.fillMaxSize()
     ) {
         Scaffold(
-            containerColor = Color.Transparent,
-            contentColor = MaterialTheme.colorScheme.onBackground,
             topBar = {
                 TopBar(
                     titleRes = R.string.app_name,

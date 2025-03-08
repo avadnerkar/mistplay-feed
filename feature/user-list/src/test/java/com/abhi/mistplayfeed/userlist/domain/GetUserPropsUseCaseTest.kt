@@ -40,7 +40,7 @@ class GetUserPropsUseCaseTest {
         )
 
         assertEquals(
-            userProps.first().map { it.user.name },
+            userProps.first().map { it.name },
             listOf("B", "C", "G")
         )
     }

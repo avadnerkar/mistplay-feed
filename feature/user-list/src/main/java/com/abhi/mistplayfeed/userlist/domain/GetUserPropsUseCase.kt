@@ -1,6 +1,7 @@
 package com.abhi.mistplayfeed.userlist.domain
 
 import com.abhi.mistplayfeed.data.repository.FeedRepository
+import com.abhi.mistplayfeed.userlist.PostProps
 import com.abhi.mistplayfeed.userlist.UserProps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -14,15 +15,24 @@ class GetUserPropsUseCase @Inject constructor(
             .map { usersWithPosts ->
                 usersWithPosts.map { (user, posts) ->
                     UserProps(
-                        user = user,
-                        highlightedPosts = posts.take(MAX_POSTS),
+                        id = user.id,
+                        name = user.name,
+                        companyName = user.company?.name,
+                        highlightedPosts = posts.mapNotNull {
+                            it.title?.let { title ->
+                                PostProps(
+                                    title = title,
+                                    body = it.body
+                                )
+                            }
+                        }.take(MAX_POSTS),
                         hasMorePosts = posts.size > MAX_POSTS
                     )
-                }.sortedBy { it.user.name }
+                }.sortedBy { it.name }
             }
     }
 
     companion object {
-        const val MAX_POSTS = 2
+        private const val MAX_POSTS = 2
     }
 }

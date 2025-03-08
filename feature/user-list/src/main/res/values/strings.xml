@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="mf_feature_user_list_network_error">Oops! Something went wrong.</string>
-    <string name="mf_feature_user_list_network_error_refresh">Retry</string>
+    <string name="feature_user_list_network_error">Oops! Something went wrong.</string>
+    <string name="feature_user_list_network_error_refresh">Retry</string>
+    <string name="feature_user_list_avatar_content_description">Avatar</string>
+    <string name="feature_user_list_works_at">Works at: %s</string>
+    <string name="feature_user_list_posts">Posts</string>
+    <string name="feature_user_list_posts_see_all">See All</string>
 </resources>
