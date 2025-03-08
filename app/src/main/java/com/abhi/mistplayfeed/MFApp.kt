@@ -12,8 +12,13 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.abhi.mistplayfeed.navigation.MFNavHost
@@ -24,6 +29,7 @@ import com.abhi.mistplayfeed.ui.component.TopBar
 fun MFApp(
     modifier: Modifier = Modifier
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
     Surface(
         modifier = modifier.fillMaxSize()
     ) {
@@ -37,10 +43,17 @@ fun MFApp(
                     actionIconContentDescription = null,
                     onActionClick = {}
                 )
+            },
+            snackbarHost = {
+                SnackbarHost(
+                    hostState = snackbarHostState,
+                    modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)
+                )
             }
         ) { padding ->
             Column(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .padding(padding)
                     .consumeWindowInsets(padding)
                     .windowInsetsPadding(
@@ -49,7 +62,15 @@ fun MFApp(
                         )
                     )
             ) {
-                MFNavHost()
+                MFNavHost(
+                    onShowSnackbar = { message, action ->
+                        snackbarHostState.showSnackbar(
+                            message = message,
+                            actionLabel = action,
+                            duration = SnackbarDuration.Long
+                        ) == SnackbarResult.ActionPerformed
+                    }
+                )
             }
         }
     }

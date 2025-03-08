@@ -12,7 +12,8 @@ data class UserProps(
 sealed interface UserListState {
     data object Loading : UserListState
 
-    data class Success(
-        val userProps: List<UserProps>
+    data class Loaded(
+        val userProps: List<UserProps>,
+        val hasSyncError: Boolean
     ) : UserListState
 }

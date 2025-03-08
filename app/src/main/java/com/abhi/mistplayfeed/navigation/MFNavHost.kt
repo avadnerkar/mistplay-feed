@@ -9,6 +9,7 @@ import com.abhi.mistplayfeed.userlist.userListScreen
 
 @Composable
 fun MFNavHost(
+    onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
@@ -17,6 +18,6 @@ fun MFNavHost(
         startDestination = UserListRoute,
         modifier = modifier
     ) {
-        userListScreen()
+        userListScreen(onShowSnackbar = onShowSnackbar)
     }
 }

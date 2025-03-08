@@ -7,8 +7,10 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object UserListRoute
 
-fun NavGraphBuilder.userListScreen() {
+fun NavGraphBuilder.userListScreen(
+    onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
+) {
     composable<UserListRoute> {
-        UserListScreen()
+        UserListScreen(onShowSnackbar = onShowSnackbar)
     }
 }
