@@ -56,7 +56,7 @@ fun TopBar(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, name = "Light theme")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
 @Composable
-private fun MFTopBarPreview() {
+private fun MFTopBar_Preview() {
     MFTheme {
         TopBar(
             titleRes = android.R.string.untitled,

@@ -16,6 +16,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.abhi.mistplayfeed.ui.component.LoadingIndicator
+import com.abhi.mistplayfeed.userlist.components.UserListComponent
 
 @Composable
 fun UserListScreen(
@@ -39,11 +40,7 @@ fun UserListScreen(
                     onRetry = viewModel::refresh,
                     onShowSnackbar = onShowSnackbar
                 )
-                LazyColumn {
-                    items(state.userProps) { item ->
-                        Text(item.user.name, color = MaterialTheme.colorScheme.onSurface)
-                    }
-                }
+                UserListComponent(users = state.userProps)
             }
         }
     }
