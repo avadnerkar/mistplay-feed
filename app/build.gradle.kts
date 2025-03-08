@@ -30,9 +30,6 @@ android {
 dependencies {
     implementation(projects.ui)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation.compose)
