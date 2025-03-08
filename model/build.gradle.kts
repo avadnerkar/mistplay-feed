@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.mistplayfeed.jvm.library)
-    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.mistplayfeed.android.library)
+    alias(libs.plugins.mistplayfeed.android.room)
 }
 
 dependencies {
