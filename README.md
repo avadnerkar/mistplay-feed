@@ -20,12 +20,6 @@ Followed Material3 guidelines for the UI. The app supports light and dark mode d
 I kept the features fairly simple due to time constraints, there's a list view to display users along with a subset of the posts, and a detail view that shows all the posts.
 The two screens are tied together by a shared element transition animation to make the transition between the screens smoother.
 
-Features that I considered for implementation but ultimately left out because I felt they either didn't showcase much complexity or because they weren't worth the implementation time:
-- Link to open user's website in a Chrome custom tab
-- Link to open phone app using user's phone number
-- Google Map integration to display pin for user's location
-- Animated logo on splashscreen
-
 ## Testing and development
 
 The app doesn't have complete test coverage due to time constraints, but I did include a few tests. There are unit tests in `SyncUsersAndPostsUseCaseTest` and `GetUserPropsUseCaseTest`, and a simple instrumented test in `UserDetailScreenTest`.
