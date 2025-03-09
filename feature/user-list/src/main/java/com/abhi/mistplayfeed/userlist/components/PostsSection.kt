@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -18,8 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.abhi.mistplayfeed.ui.R
 import com.abhi.mistplayfeed.ui.component.Post
 import com.abhi.mistplayfeed.ui.component.PostProps
-import com.abhi.mistplayfeed.ui.theme.MFTheme
-import kotlin.collections.forEach
+import com.abhi.mistplayfeed.ui.preview.PreviewProvider
 
 @Composable
 fun PostsSection(postProps: List<PostProps>, hasMorePosts: Boolean, onSeeMore: () -> Unit) {
@@ -62,13 +60,14 @@ private fun previewPost(): PostProps = PostProps(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
 @Composable
 private fun PostSection_Preview() {
-    MFTheme {
-        Surface {
-            PostsSection(
-                postProps = listOf(
-                    previewPost(), previewPost()
-                ), hasMorePosts = true, onSeeMore = {})
-        }
+    PreviewProvider {
+        PostsSection(
+            postProps = listOf(
+                previewPost(), previewPost()
+            ),
+            hasMorePosts = true,
+            onSeeMore = {}
+        )
     }
 }
 

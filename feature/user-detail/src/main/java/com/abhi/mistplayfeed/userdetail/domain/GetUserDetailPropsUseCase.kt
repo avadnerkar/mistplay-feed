@@ -17,6 +17,7 @@ class GetUserDetailPropsUseCase @Inject constructor(
             feedRepository.getPostsForUser(userId)
         ) { user, posts ->
             UserDetailState.Loaded(
+                userId = userId,
                 name = user.name,
                 companyProps = user.company?.let {
                     val companyName = it.name

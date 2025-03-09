@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.abhi.mistplayfeed.ui.theme.MFTheme
+import com.abhi.mistplayfeed.ui.preview.PreviewProvider
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,7 +57,7 @@ fun TopBar(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
 @Composable
 private fun MFTopBar_Preview() {
-    MFTheme {
+    PreviewProvider {
         TopBar(
             titleRes = android.R.string.untitled,
             actionIcon = null,

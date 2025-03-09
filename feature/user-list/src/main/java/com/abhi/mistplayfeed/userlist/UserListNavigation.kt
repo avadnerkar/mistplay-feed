@@ -1,7 +1,9 @@
 package com.abhi.mistplayfeed.userlist
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.abhi.mistplayfeed.ui.animation.LocalNavAnimatedVisibilityScope
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,6 +14,8 @@ fun NavGraphBuilder.userListScreen(
     onNavigateToDetail: (userId: Long) -> Unit
 ) {
     composable<UserListRoute> {
-        UserListRoute(onShowSnackbar = onShowSnackbar, onNavigateToDetail = onNavigateToDetail)
+        CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+            UserListRoute(onShowSnackbar = onShowSnackbar, onNavigateToDetail = onNavigateToDetail)
+        }
     }
 }
