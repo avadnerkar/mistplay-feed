@@ -29,6 +29,7 @@ android {
 
 dependencies {
     implementation(projects.feature.userList)
+    implementation(projects.feature.userDetail)
     implementation(projects.ui)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.splashscreen)

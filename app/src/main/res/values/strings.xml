@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mistplay Feed</string>
+    <string name="mf_back">Back</string>
 </resources>

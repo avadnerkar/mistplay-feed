@@ -9,8 +9,9 @@ data object UserListRoute
 
 fun NavGraphBuilder.userListScreen(
     onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
+    onNavigateToDetail: (userId: Long) -> Unit
 ) {
     composable<UserListRoute> {
-        UserListScreen(onShowSnackbar = onShowSnackbar, onNavigateToDetail = {})
+        UserListScreen(onShowSnackbar = onShowSnackbar, onNavigateToDetail = onNavigateToDetail)
     }
 }

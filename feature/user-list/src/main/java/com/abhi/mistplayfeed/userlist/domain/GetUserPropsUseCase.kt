@@ -1,8 +1,8 @@
 package com.abhi.mistplayfeed.userlist.domain
 
 import com.abhi.mistplayfeed.data.repository.FeedRepository
-import com.abhi.mistplayfeed.userlist.PostProps
-import com.abhi.mistplayfeed.userlist.UserProps
+import com.abhi.mistplayfeed.ui.component.PostProps
+import com.abhi.mistplayfeed.userlist.components.UserProps
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -21,6 +21,7 @@ class GetUserPropsUseCase @Inject constructor(
                         highlightedPosts = posts.mapNotNull {
                             it.title?.let { title ->
                                 PostProps(
+                                    id = it.id,
                                     title = title,
                                     body = it.body
                                 )

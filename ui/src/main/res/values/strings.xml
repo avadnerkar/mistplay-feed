@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ui_posts">Posts</string>
+    <string name="ui_posts_see_all">See All</string>
+    <string name="ui_avatar_content_description">Avatar</string>
+</resources>
