@@ -3,4 +3,5 @@
     <string name="ui_posts">Posts</string>
     <string name="ui_posts_see_all">See All</string>
     <string name="ui_avatar_content_description">Avatar</string>
+    <string name="ui_loading_indicator_content_description">Loading indicator</string>
 </resources>

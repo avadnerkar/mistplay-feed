@@ -14,4 +14,7 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material3)
     testImplementation(projects.testing)
+    androidTestImplementation(libs.bundles.androidx.compose.ui.test)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(projects.testing)
 }
