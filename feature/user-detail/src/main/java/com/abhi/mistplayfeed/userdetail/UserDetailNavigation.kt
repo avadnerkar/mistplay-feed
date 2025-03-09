@@ -20,6 +20,6 @@ fun NavController.navigateToUserDetail(
 
 fun NavGraphBuilder.userDetailScreen() {
     composable<UserDetailRoute> {
-        UserDetailScreen()
+        UserDetailRoute()
     }
 }

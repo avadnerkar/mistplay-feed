@@ -15,7 +15,7 @@ import com.abhi.mistplayfeed.ui.component.LoadingIndicator
 import com.abhi.mistplayfeed.userlist.components.UserListComponent
 
 @Composable
-fun UserListScreen(
+internal fun UserListRoute(
     onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
     modifier: Modifier = Modifier,
     viewModel: UserListViewModel = hiltViewModel(),
@@ -25,6 +25,23 @@ fun UserListScreen(
     LifecycleEventEffect(Lifecycle.Event.ON_START) {
         viewModel.refresh()
     }
+    UserListScreen(
+        uiState = uiState,
+        onShowSnackbar = onShowSnackbar,
+        modifier = modifier,
+        onNavigateToDetail = onNavigateToDetail,
+        onRetry = viewModel::refresh
+    )
+}
+
+@Composable
+fun UserListScreen(
+    uiState: UserListState,
+    onShowSnackbar: suspend (message: String, actionLabel: String?) -> Boolean,
+    modifier: Modifier = Modifier,
+    onNavigateToDetail: (userId: Long) -> Unit,
+    onRetry: () -> Unit
+) {
     Column(modifier = modifier.fillMaxSize()) {
         when (val state = uiState) {
             UserListState.Loading -> {
@@ -34,7 +51,7 @@ fun UserListScreen(
             is UserListState.Loaded -> {
                 ErrorHandler(
                     hasError = state.hasSyncError,
-                    onRetry = viewModel::refresh,
+                    onRetry = onRetry,
                     onShowSnackbar = onShowSnackbar
                 )
                 UserListComponent(users = state.userProps, onNavigateToDetail = onNavigateToDetail)

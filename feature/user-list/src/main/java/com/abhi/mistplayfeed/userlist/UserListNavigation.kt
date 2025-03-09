@@ -12,6 +12,6 @@ fun NavGraphBuilder.userListScreen(
     onNavigateToDetail: (userId: Long) -> Unit
 ) {
     composable<UserListRoute> {
-        UserListScreen(onShowSnackbar = onShowSnackbar, onNavigateToDetail = onNavigateToDetail)
+        UserListRoute(onShowSnackbar = onShowSnackbar, onNavigateToDetail = onNavigateToDetail)
     }
 }

@@ -11,11 +11,19 @@ import com.abhi.mistplayfeed.ui.component.LoadingIndicator
 import com.abhi.mistplayfeed.userdetail.component.UserDetailComponent
 
 @Composable
-fun UserDetailScreen(
+internal fun UserDetailRoute(
     modifier: Modifier = Modifier,
     viewModel: UserDetailViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    UserDetailScreen(uiState = uiState, modifier = modifier)
+}
+
+@Composable
+fun UserDetailScreen(
+    uiState: UserDetailState,
+    modifier: Modifier = Modifier,
+) {
     Column(modifier = modifier.fillMaxSize()) {
         when (val state = uiState) {
             UserDetailState.Loading -> {
